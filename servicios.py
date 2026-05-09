@@ -55,6 +55,11 @@ class Servicio(ABC):
     # --------------------------------------------------------
     def validar_horas(self):
         if self.horas <= 0:
+
+            logging.error(
+                f"Horas inválidas para el cliente {self.cliente}: {self.horas}"
+            )
+
             raise ValueError("Las horas deben ser mayores a 0")
 
 
@@ -118,6 +123,11 @@ class AlquilerEquipos(Servicio):
         self.validar_horas()
 
         if self.cantidad_equipos <= 0:
+               
+            logging.error(
+            f"Cantidad inválida de equipos para {self.cliente}"
+            )
+               
             raise ValueError("Debe alquilar mínimo 1 equipo")
 
         return self.horas * self.COSTO_HORA * self.cantidad_equipos
