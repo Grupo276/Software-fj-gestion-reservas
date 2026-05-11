@@ -227,6 +227,74 @@ try:
 except Exception as e:
     print(f"Error capturado: {e}")
 
+# ============================================================
+# 11. CÁLCULO CON IMPUESTO
+# ============================================================
+
+try:
+
+    print("\n===== COSTO CON IMPUESTO =====")
+
+    total_impuesto = servicio1.calcular_costo_con_impuesto(
+        horas=2,
+        impuesto=0.19
+    )
+
+    print(f"Costo con IVA: ${total_impuesto:,.0f}")
+
+except Exception as e:
+    print(f"Error capturado: {e}")
+
+
+# ============================================================
+# 12. CÁLCULO CON DESCUENTO
+# ============================================================
+
+try:
+
+    print("\n===== COSTO CON DESCUENTO =====")
+
+    total_descuento = servicio2.calcular_costo_con_descuento(
+        horas=3,
+        descuento=0.10
+    )
+
+    print(f"Costo con descuento: ${total_descuento:,.0f}")
+
+except Exception as e:
+    print(f"Error capturado: {e}")
+
+
+# ============================================================
+# 13. SERVICIO NO DISPONIBLE
+# ============================================================
+
+try:
+
+    print("\n===== SERVICIO NO DISPONIBLE =====")
+
+    servicio3.disponible = False
+
+    servicio3.verificar_disponibilidad()
+
+except Exception as e:
+    print(f"Error capturado: {e}")
+
+# ============================================================
+# 14. INFORMACIÓN GENERAL DEL SERVICIO
+# ============================================================
+
+try:
+
+    print("\n===== INFORMACIÓN GENERAL =====")
+
+    print(
+        servicio1.informacion_general()
+    )
+
+except Exception as e:
+    print(f"Error capturado: {e}") 
+
 
 # ============================================================
 # FINAL DEL SISTEMA

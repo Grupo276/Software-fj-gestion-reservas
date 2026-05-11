@@ -55,8 +55,12 @@ class ReservaSala(Servicio):
 
     # --------------------------------------------------------
     # Sobrescritura del método calcular_costo
+    # Compatible con clase abstracta
     # --------------------------------------------------------
-    def calcular_costo(self, impuesto=0, descuento=0): 
+    def calcular_costo(self, horas=None, impuesto=0, descuento=0): 
+        
+        if horas is not None:
+            self.horas = horas   
 
         self.validar_horas()
 
@@ -82,9 +86,10 @@ class ReservaSala(Servicio):
     def describir_servicio(self): 
         
         return (
-            f"Reserva de sala {self.tipo_sala} "
+            f"Reserva de sala "
+            f"{self.tipo_sala} " 
             f"por {self.horas} horas" 
-        ) 
+        )  
 
     # --------------------------------------------------------
     # Sobrescritura del método mostrar_detalle
@@ -137,7 +142,10 @@ class AlquilerEquipos(Servicio):
     # --------------------------------------------------------
     # Sobrescritura del método calcular_costo
     # --------------------------------------------------------
-    def calcular_costo(self, impuesto=0, descuento=0): 
+    def calcular_costo(self, horas=None, impuesto=0, descuento=0):
+        
+        if horas is not None: 
+            self.horas = horas  
 
         self.validar_horas()
 
@@ -170,8 +178,9 @@ class AlquilerEquipos(Servicio):
         
         return (
             f"Alquiler de "
-            f"{self.cantidad_equipos} equipos "
-            f"por {self.horas} horas "
+            f"{self.cantidad_equipos} "
+            f"equipos por "
+            f"{self.horas} horas "
         ) 
 
     # --------------------------------------------------------
@@ -225,7 +234,10 @@ class Asesoria(Servicio):
     # --------------------------------------------------------
     # Sobrescritura del método calcular_costo
     # --------------------------------------------------------
-    def calcular_costo(self, impuesto=0, descuento=0): 
+    def calcular_costo(self, horas=None, impuesto=0, descuento=0): 
+        
+        if horas is not None: 
+            self.horas = horas  
 
         self.validar_horas()
         
